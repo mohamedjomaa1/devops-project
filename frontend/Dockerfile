@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Build the Angular app using local CLI
-RUN npx ng build --prod
+RUN npx ng build --configuration=production
 
 # Production Stage
 FROM nginx:alpine
