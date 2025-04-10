@@ -1,0 +1,11 @@
+l<p>calcul</p>
+
+<form class="form-group" [formGroup]="calcul" (ngSubmit)="onShowHeuresSup()">
+    <label for="date-debut" class="form-label">Date Début:</label>
+    <input class="form-control" id="date-debut" placeholder="Date Début" FormControlName="date_debut" type="date"/>
+    <div *ngIf="calcul.get('date_debut')?.errors">Result:</div>
+    <label for="date-fin" class="form-label">Date Fin:</label>
+    <input class="form-control" id="date-fin" placeholder="Date Fin" FormControlName="date_fin" type="date"/>
+    <div *ngIf="calcul.get('date_fin')?.errors">Result:</div>
+    <button class="btn btn-primary">Liste des heures</button>
+</form>
