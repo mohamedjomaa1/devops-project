@@ -109,11 +109,11 @@ pipeline {
 			steps {
 				script {
                     if (isUnix()) {
-						sh 'docker-compose -f docker-compose.yml down --remove-orphans'
-                        sh 'docker-compose -f docker-compose.yml up -d'
+						sh 'docker-compose -f docker-compose.yaml down --remove-orphans'
+                        sh 'docker-compose -f docker-compose.yaml up -d'
                     } else {
-						bat 'docker-compose -f docker-compose.yml down --remove-orphans'
-                        bat 'docker-compose -f docker-compose.yml up -d'
+						bat 'docker-compose -f docker-compose.yaml down --remove-orphans'
+                        bat 'docker-compose -f docker-compose.yaml up -d'
                     }
                 }
             }
