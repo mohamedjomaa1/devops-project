@@ -20,6 +20,8 @@ pipeline {
             steps {
                 echo "Cloning the repository..."
                 git branch: 'master', url: 'https://github.com/mohamedjomaa1/devops-project.git'
+                echo "Listing files in workspace after checkout:"
+                bat 'dir'  // List files in the workspace
             }
         }
 
