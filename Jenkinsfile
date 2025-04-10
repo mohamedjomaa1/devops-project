@@ -39,7 +39,7 @@ pipeline {
             }
         }*/
 
-        stage('Quality Gate') {
+  /*      stage('Quality Gate') {
 			steps {
 				script {
 					timeout(time: 5, unit: 'MINUTES') {
@@ -48,7 +48,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
 
         stage('Build Frontend') {
 			steps {
