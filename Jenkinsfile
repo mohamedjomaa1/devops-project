@@ -118,17 +118,16 @@ pipeline {
         }*/
 
         stage('Deploy') {
-             steps {
-            script {
-                echo "Listing files in workspace:"
-                sh 'ls -la'  // For Unix-based systems
-                // For Windows use:
-                bat 'dir'  // For Windows systems
-                sh 'docker-compose -f docker-compose.yml down --remove-orphans'
-                sh 'docker-compose -f docker-compose.yml up -d'
-            }
-            }
+    steps {
+        script {
+            echo "Listing files in workspace:"
+            bat 'dir'  // For Windows systems
+            bat 'docker-compose -f docker-compose.yml down --remove-orphans'
+            bat 'docker-compose -f docker-compose.yml up -d'
         }
+    }
+}
+
 
 
 
