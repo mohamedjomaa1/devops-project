@@ -5,7 +5,7 @@ services:
     image: mohamedjomaa1/devops-frontend:1.0
     build: ./frontend
     ports:
-      - "4200:4200"
+      - "4200:80"
     depends_on:
       - backend
     restart: always
