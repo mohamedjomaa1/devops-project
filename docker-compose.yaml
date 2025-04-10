@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  frontend:
+    image: mohamedjomaa1/devops-frontend:1.0
+    build: ./frontend
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+    restart: always
+    networks:
+      - salam_network
+
+  backend:
+    image: mohamedjomaa1/devops-backend:1.0
+    build: ./backend
+    ports:
+      - "8082:8082"
+    environment:
+      # Configuration DB
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/heuresupDB
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 
+    depends_on:
+      - db
+    restart: always
+    networks:
+      - salam_network
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: 
+      MYSQL_DATABASE: heuresupDB
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: always
+    networks:
+      - salam_network
+
+volumes:
+  db_data:
+networks:
+  salam_network:
+    name: salam_network
